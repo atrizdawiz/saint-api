@@ -40,6 +40,7 @@ model Saint {
   notes                       String?
   ambigousDateOfBirth         String?
   ambigousDateOfHeavenlyBirth String?
+  ambigousDateOfCanonization  String?
   dateOfBirth                 DateTime?       @db.Date
   dateOfHeavenlyBirth         DateTime?       @db.Date
   dateOfCanonization          DateTime?       @db.Date
