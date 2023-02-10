@@ -24,6 +24,7 @@ model ReligiousOrder {
   description String?
   type        ReligiousOrderType
   saints      Saint[]
+  founders    Saint[]            @relation("founders")
 }
 
 model Saint {
@@ -32,6 +33,8 @@ model Saint {
   quotes           Quote[]
   religiousOrder   ReligiousOrder? @relation(fields: [religiousOrderId], references: [id])
   religiousOrderId Int?
+  founderSaint     ReligiousOrder  @relation("founders", fields: [founderSaintId], references: [id])
+  founderSaintId   Int
 }
 
 enum ReligiousOrderType {
