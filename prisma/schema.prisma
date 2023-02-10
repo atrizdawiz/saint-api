@@ -25,7 +25,7 @@ model ReligiousOrder {
   name         String?
   officialName String
   acronym      String?
-  foundedIn    DateTime           @db.Date
+  foundedIn    DateTime?          @db.Date
   type         ReligiousOrderType
   saints       Saint[]            @relation("members")
   founders     Saint[]            @relation("founders")
