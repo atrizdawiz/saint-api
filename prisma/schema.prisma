@@ -22,19 +22,25 @@ model Quote {
 model ReligiousOrder {
   id          Int                @id @default(autoincrement())
   description String?
+  foundedIn   DateTime           @db.Date
   type        ReligiousOrderType
-  saints      Saint[]
+  saints      Saint[]            @relation("members")
   founders    Saint[]            @relation("founders")
 }
 
 model Saint {
-  id               Int             @id @default(autoincrement())
-  name             String?
-  quotes           Quote[]
-  religiousOrder   ReligiousOrder? @relation(fields: [religiousOrderId], references: [id])
-  religiousOrderId Int?
-  founderSaint     ReligiousOrder  @relation("founders", fields: [founderSaintId], references: [id])
-  founderSaintId   Int
+  id                      Int             @id @default(autoincrement())
+  name                    String
+  alias                   String?
+  quotes                  Quote[]
+  dateOfBirth             DateTime        @db.Date
+  dateOfHeavenlyBirth     DateTime        @db.Date
+  wasMartyred             Boolean
+  nationality             String?
+  religiousOrder          ReligiousOrder? @relation("members", fields: [religiousOrderId], references: [id])
+  religiousOrderId        Int?
+  foundedReligiousOrder   ReligiousOrder  @relation("founders", fields: [foundedReligiousOrderId], references: [id])
+  foundedReligiousOrderId Int
 }
 
 enum ReligiousOrderType {
