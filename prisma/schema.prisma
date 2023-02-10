@@ -20,8 +20,9 @@ model Quote {
 }
 
 model ReligiousOrder {
-  id          Int     @id @default(autoincrement())
+  id          Int                @id @default(autoincrement())
   description String?
+  type        ReligiousOrderType
   saints      Saint[]
 }
 
@@ -31,4 +32,11 @@ model Saint {
   quotes           Quote[]
   religiousOrder   ReligiousOrder? @relation(fields: [religiousOrderId], references: [id])
   religiousOrderId Int?
+}
+
+enum ReligiousOrderType {
+  CANONS_REGULAR
+  MONASTIC
+  MENIDICANT
+  CLERIC
 }
