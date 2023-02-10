@@ -20,12 +20,15 @@ model Quote {
 }
 
 model ReligiousOrder {
-  id          Int                @id @default(autoincrement())
-  description String?
-  foundedIn   DateTime           @db.Date
-  type        ReligiousOrderType
-  saints      Saint[]            @relation("members")
-  founders    Saint[]            @relation("founders")
+  id           Int                @id @default(autoincrement())
+  description  String?
+  name         String
+  officialName String?
+  acronym      String?
+  foundedIn    DateTime           @db.Date
+  type         ReligiousOrderType
+  saints       Saint[]            @relation("members")
+  founders     Saint[]            @relation("founders")
 }
 
 model Saint {
