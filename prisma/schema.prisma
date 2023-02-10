@@ -33,6 +33,7 @@ model Saint {
   name                        String
   alias                       String?
   quotes                      Quote[]
+  notes                       String?
   ambigousDateOfBirth         String?
   ambigousDateOfHeavenlyBirth String?
   dateOfBirth                 DateTime?       @db.Date
