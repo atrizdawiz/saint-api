@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "debug": "NODE_OPTIONS='--inspect' next dev",
     "start": "next start",
     "lint": "next lint"
   },
@@ -14,6 +15,7 @@
     "@types/node": "18.13.0",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
+    "cheerio": "^1.0.0-rc.12",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
     "next": "13.1.6",
@@ -22,6 +24,7 @@
     "typescript": "4.9.5"
   },
   "devDependencies": {
+    "@types/cheerio": "^0.22.31",
     "prisma": "^4.10.1"
   }
 }
