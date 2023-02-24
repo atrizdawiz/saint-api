@@ -48,6 +48,14 @@ const updateTimeFields = async () => {
   return updatedSaints;
 };
 
-const saintsService = { updateTimeFields };
+const getSaintsByCountryCode = async (countryCode: string) => {
+  const saintsByCountryCode = await prisma.saint.findMany({
+    where: { countryCode },
+  });
+
+  return saintsByCountryCode;
+};
+
+const saintsService = { updateTimeFields, getSaintsByCountryCode };
 
 export default saintsService;
