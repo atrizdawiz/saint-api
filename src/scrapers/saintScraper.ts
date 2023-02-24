@@ -166,28 +166,4 @@ export const saintDetailScraper = async (wikiUrl: string) => {
   return niceStuff;
 };
 
-export const saintTranformer = (saintData: SaintData[]) => {
-  return saintData.map((saint) => {
-    const birthDateIsRealDate = getRealDate(saint.dateOfBirth);
-    const heavenlyBirthDateIsRealDate = getRealDate(saint.dateOfHeavenlyBirth);
-    const canonizationIsRealDate = getRealDate(saint.dateOfCanonization);
-    const wasMartyred = Boolean(saint.notes?.match(/martyr/i));
-
-    return {
-      ...saint,
-      ambigousDateOfBirth: !birthDateIsRealDate ? saint.dateOfBirth : null,
-      ambigousDateOfHeavenlyBirth: !heavenlyBirthDateIsRealDate
-        ? saint.dateOfHeavenlyBirth
-        : null,
-      ambigousDateOfCanonization: !canonizationIsRealDate
-        ? saint.dateOfCanonization
-        : null,
-      dateOfBirth: birthDateIsRealDate ?? null,
-      dateOfHeavenlyBirth: heavenlyBirthDateIsRealDate ?? null,
-      dateOfCanonization: canonizationIsRealDate ?? null,
-      wasMartyred: wasMartyred ? true : null,
-    };
-  });
-};
-
 export default saintScraper;
