@@ -6,6 +6,7 @@
     "dev": "yarn prisma generate && next dev",
     "build": "next build",
     "debug": "NODE_OPTIONS='--inspect' next dev",
+    "dumpDb": "./db_dump_command.sh",
     "start": "next start",
     "lint": "next lint"
   },
