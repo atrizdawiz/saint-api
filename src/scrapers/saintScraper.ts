@@ -123,7 +123,6 @@ export const saintDetailScraper = async (wikiUrl: string) => {
       .children()
       .toArray()
       .map((mapEl, i) => {
-        console.log(mapEl);
         if (mapEl.name === "br") {
           return " ";
         }

@@ -43,7 +43,6 @@ const updateTimeFields = async () => {
       }
     }
   }
-  console.log("updatedSaints", updatedSaints);
 
   return updatedSaints;
 };
