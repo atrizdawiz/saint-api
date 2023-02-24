@@ -47,6 +47,7 @@ model Saint {
   latinFeastDay               DateTime?       @db.Date
   wasMartyred                 Boolean?
   nationality                 String?
+  countryCode                 String?
   religiousOrder              ReligiousOrder? @relation("members", fields: [religiousOrderId], references: [id])
   religiousOrderId            Int?
   foundedReligiousOrder       ReligiousOrder? @relation("founders", fields: [foundedReligiousOrderId], references: [id])
